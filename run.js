@@ -15,6 +15,9 @@ rimraf.sync('out/')
 
 const base = 5
 const depth = 1
+console.log(`file tree depth: ${depth}`)
+console.log(`files per node: ${base}`)
+
 const tree = app.getTree(base, depth)
 const compiled = template(templateSource, {})
 

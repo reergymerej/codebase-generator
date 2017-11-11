@@ -1,4 +1,4 @@
-import app from './index'
+import app, { getNodeProjection } from './index'
 
 describe('app', () => {
   it('should generate n nodes', () => {
@@ -41,6 +41,26 @@ describe('app', () => {
           ],
         },
       ],
+    })
+  })
+
+  describe('getNodeProjection', () => {
+    it('should work for base 5, dept 1', () => {
+      const base = 5
+      const depth = 1
+      expect(getNodeProjection(base, depth)).toBe(1)
+    })
+
+    it('should work for base 5, depth 2', () => {
+      const base = 5
+      const depth = 2
+      expect(getNodeProjection(base, depth)).toBe(6)
+    })
+
+    it('should work for base 5, depth 3', () => {
+      const base = 5
+      const depth = 3
+      expect(getNodeProjection(base, depth)).toBe(31)
     })
   })
 })

@@ -7,7 +7,11 @@ import template from 'lodash.template'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
 
-const templateSource = fs.readFileSync('one.template.js', 'utf8')
+// const TEMPLATE = 'one.template.js'
+const TEMPLATE = 'react.template.js'
+
+const templateSource = fs.readFileSync(
+  path.join(__dirname, 'templates', TEMPLATE), 'utf8')
 
 console.log('Generating Codebase...')
 

@@ -13,6 +13,7 @@ const getNode = (name, childCount, row) => {
   return {
     name,
     children,
+    isLeaf: children.length === 0
   }
 }
 

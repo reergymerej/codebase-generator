@@ -19,8 +19,16 @@ const tree = app.getTree(base, depth)
 const compiled = template(templateSource, {})
 
 const createFileSource = (options) => {
+  const importFiles = []
+  for (let i = 0; i < base; i++) {
+    importFiles.push(i)
+  }
+  const imports = options.isLeaf
+    ? []
+    : importFiles
   const source = compiled({
     filename: options.filename,
+    imports,
     filesPerDir: options.filesPerDir,
   })
   return source
@@ -44,6 +52,7 @@ app.iterateTree(tree, (node) => {
   const source = createFileSource({
     filename,
     filesPerDir: base,
+    isLeaf: node.isLeaf,
   })
 
   saveFile(filename, source)

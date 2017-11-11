@@ -21,6 +21,7 @@ const compiled = template(templateSource, {})
 const createFileSource = (options) => {
   const source = compiled({
     filename: options.filename,
+    filesPerDir: options.filesPerDir,
   })
   return source
 }
@@ -42,6 +43,7 @@ app.iterateTree(tree, (node) => {
 
   const source = createFileSource({
     filename,
+    filesPerDir: base,
   })
 
   saveFile(filename, source)

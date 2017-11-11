@@ -1,30 +1,22 @@
 #!/usr/bin/env node
 
-export default (base, rows) => {
-  console.log('Generating Codebase...')
-
-  let row = 0
-  for (; row < rows; row++) {
-    let nodes = []
-    const nodesInRow = Math.pow(base, row)
-    let nodeIndex = 0
-    for (; nodeIndex < nodesInRow; nodeIndex++) {
-      nodes.push(0)
+const getNode = (name, childCount, row) => {
+  const children = []
+  let i = 0
+  if (row > 0) {
+    for (; i < childCount; i++) {
+      const childName = name + '.' + i
+      const grandChildCount = childCount
+      children.push(getNode(childName, grandChildCount, row - 1))
     }
   }
-
   return {
-    name: '0',
-    nodes: [
-      {
-        name: '0.0',
-        nodes: [
-          {
-            name: '0.0.0',
-            nodes: [],
-          },
-        ],
-      },
-    ],
+    name,
+    children,
   }
+}
+
+export default (base, rows) => {
+  console.log('Generating Codebase...')
+  return getNode('0', base, rows)
 }

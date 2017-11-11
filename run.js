@@ -5,20 +5,48 @@ import path from 'path'
 import * as app from './index'
 import template from 'lodash.template'
 import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
+
+const templateSource = fs.readFileSync('one.template.js', 'utf8')
 
 console.log('Generating Codebase...')
 
+rimraf.sync('out/')
+
 const base = 5
-const depth = 3
+const depth = 1
 const tree = app.getTree(base, depth)
+const compiled = template(templateSource, {})
+
+const createFileSource = (options) => {
+  const source = compiled({
+    filename: options.filename,
+  })
+  return source
+}
+
+let fileCount = 0
+const saveFile = (filename, src) => {
+  fs.writeFileSync(filename, src)
+}
 
 let dirCount = 0
 app.iterateTree(tree, (node) => {
   const filepath = path.join('out', node.name)
   mkdirp.sync(filepath)
   dirCount++
+
+  const filename = filepath === 'out/'
+    ? 'out/index.js'
+    : filepath + '/index.js'
+
+  const source = createFileSource({
+    filename,
+  })
+
+  saveFile(filename, source)
+  fileCount++
 })
 
-console.log(dirCount)
-// const t = template('', {})
-// console.log(t)
+console.log(`created ${dirCount} directories...`)
+console.log(`created ${fileCount} files...`)

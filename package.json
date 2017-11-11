@@ -13,5 +13,9 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "lodash.template": "^4.4.0",
+    "mkdirp": "^0.5.1"
   }
 }

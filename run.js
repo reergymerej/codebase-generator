@@ -14,7 +14,7 @@ console.log('Generating Codebase...')
 rimraf.sync('out/')
 
 const base = 5
-const depth = 1
+const depth = 4
 console.log(`file tree depth: ${depth}`)
 console.log(`files per node: ${base}`)
 

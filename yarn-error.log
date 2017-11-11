@@ -1,0 +1,42 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn start
+
+PATH: 
+  ~/Library/Python/2.7/bin:/Users/jeremygreer/.rvm/gems/ruby-2.3.0/bin:/Users/jeremygreer/.rvm/gems/ruby-2.3.0@global/bin:/Users/jeremygreer/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/clojure:/usr/local/go/bin:/Users/jeremygreer/code/go/bin:/usr/local/opt/android-sdk:/usr/local/opt/android-sdk/platform-tools/adb:/Users/jeremygreer/.rvm/bin:/Users/jeremygreer/apps/apache-maven-3.3.9/bin:/Users/jeremygreer/browser-drivers
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  8.5.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "codebase-generator",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "start': "index.js"
+    },
+    "repository": "git@github.com:reergymerej/codebase-generator.git",
+    "author": "Jeremy Greer <jeremy.greer.atl@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /Users/jeremygreer/code/js/codebase-generator/package.json: Unexpected token i in JSON at position 107
+      at JSON.parse (<anonymous>)
+      at /Users/jeremygreer/.config/yarn/global/node_modules/yarn/lib/cli.js:770:59
+      at Generator.next (<anonymous>)
+      at step (/Users/jeremygreer/.config/yarn/global/node_modules/yarn/lib/cli.js:92:30)
+      at /Users/jeremygreer/.config/yarn/global/node_modules/yarn/lib/cli.js:103:13
+      at <anonymous>
